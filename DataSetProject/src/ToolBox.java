@@ -47,30 +47,89 @@ public class ToolBox {
 	 * 1) username in the array list that matches user input
 	 * 2) returning the index position in the array
 	*/
-	public int userNameValidation(String username, ArrayList<String> arraylist) {
-		//creating the index position holder variable
-		int indexNum = 0;
+	public boolean usernameValidation(String username, ArrayList<String> arraylist) {
+		//creating the validation variable to return after array iteration
+		boolean verify = false;
 		
 		//Create the loop to iterate through the array list and check for matches to user input
 		for(int i = 0; i < arraylist.size(); i++) {
-			//checking through each iteration if the username parameter equals the current value of the current index number in the arraylist
-			if(username == arraylist.get(i)) {
+			//checking through each iteration if the username or pass parameter equals the current value of the current index number in the arraylist
+			if(username.equals(arraylist.get(i))) {
+				verify = true;
 			}else {
-				continue;
-			}
+
+			}//end of if statement
+			
 		}//end of for loop
 		
-		
-		return indexNum; 
+		//returning true or false if user input matches any strings in the array
+		return verify; 
 	}//end of username validation method
 	
-	public void passValidation() {
+	public boolean passwordValidation(String password, ArrayList<String> arraylist) {
+		//creating the validation variable to return after array iteration
+		boolean verify = false;
 		
-	}//end of password validation method
+		//Create the loop to iterate through the array list and check for matches to user input
+		for(int i = 0; i < arraylist.size(); i++) {
+			//checking through each iteration if the username or pass parameter equals the current value of the current index number in the arraylist
+			if(password.equals(arraylist.get(i))) {
+				verify = true;
+			}else {
+
+			}//end of if statement
+			
+		}//end of for loop
+		
+		//returning true or false if user input matches any strings in the array
+		return verify; 
+	}//end of username validation method
 	
+	
+	
+	//this method grabs the position of the username if applicable in the arraylist
+	public int userNamePos(String username, ArrayList<String> arraylist){		
+		int indexNumuser = -1;
+		
+		//Create the loop to iterate through the array list and check for matches to user input
+		for(int i = 0; i < arraylist.size(); i++) {
+			//checking through each iteration if the user or pass parameter value equals the current value of the current index number in the arraylist
+			if(username.equals(arraylist.get(i))) {
+				indexNumuser = i;
+			}else {
+			
+			}//end of if statement
+			
+		}//end of for loop
+		
+		return indexNumuser;
+			
+	}//end of usernamepos method
+	
+	
+	//this method grabs the position of the username if applicable in the arraylist
+		public int passNamePos(String password, ArrayList<String> arraylist){
+			//creating the index position holder variable
+			int indexNumpass = -2;
+			
+			//Create the loop to iterate through the array list and check for matches to user input
+			for(int i = 0; i < arraylist.size(); i++) {
+				//checking through each iteration if the user or pass parameter value equals the current value of the current index number in the arraylist
+				if(password.equals(arraylist.get(i))) {
+					indexNumpass = i;
+				}else {
+				
+				}//end of if statement
+				
+			}//end of for loop
+			
+			return indexNumpass;
+				
+		}//end of passnamepos method
 	
 	//checks that the position in the userarray matches the position in the passarray
-	public void userAndPassValidation() {
+	public boolean positionValidation() {
+		return false;
 		
 	}//end of user and pass validation method
 	
