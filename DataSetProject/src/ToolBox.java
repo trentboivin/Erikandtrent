@@ -1,6 +1,6 @@
 //IMPORTS
+import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.*;
 /**
  * Date Created: 5/16/2022
  * Purpose: Toolbox full of our own methods and objects to be used in our main java program
@@ -9,11 +9,12 @@ import javax.swing.*;
  */
 public class ToolBox {
 	
+
 	//random instance created from javas built in random class for use in the captchagenerator
 	static Random r = new Random();
 	
 	
-	public static String captchaGen(){
+	public String captchaGen(){
 		
 		//storage variables
 		String Generation = "";
@@ -42,43 +43,43 @@ public class ToolBox {
 	}//end of captchaGen method
 	
 	
-	//this method is using javax swing to create the gui for the program
-	public static void window(){
-		//lets create the basics for the frame that we will be using for the gui using javax swing
+	/*method will take in user input as parameter and the username array list checking for 
+	 * 1) username in the array list that matches user input
+	 * 2) returning the index position in the array
+	*/
+	public int userNameValidation(String username, ArrayList<String> arraylist) {
+		//creating the index position holder variable
+		int indexNum = 0;
 		
-		//instancing objects for the frame of the gui and buttons/text fields
-		JFrame window = new JFrame("STORE NAME");
-		JButton button = new JButton(new ImageIcon("C:\\Users\\Trent\\login.png"));
-		//creating the username and password text fields
-		JTextField username = new JTextField("Username");
-		JTextField password = new JTextField("Password");
-	
-		//set the size of the jframe and button and other frame addons
-		window.setSize(400,400);
-		button.setBounds(130,200,150,50);
-		username.setBounds(160,100,75,25);
-		password.setBounds(160,140,75,25);
-		
-		//adding everything to the frame
-		window.add(button);
-		window.add(username);
-		window.add(password);
-		
-		//setting the layout to null for now
-		window.setLayout(null);
-		window.setVisible(true);
+		//Create the loop to iterate through the array list and check for matches to user input
+		for(int i = 0; i < arraylist.size(); i++) {
+			//checking through each iteration if the username parameter equals the current value of the current index number in the arraylist
+			if(username == arraylist.get(i)) {
+			}else {
+				continue;
+			}
+		}//end of for loop
 		
 		
+		return indexNum; 
+	}//end of username validation method
+	
+	public void passValidation() {
 		
-	}//end of window method
+	}//end of password validation method
 	
 	
-	
-	
-	
+	//checks that the position in the userarray matches the position in the passarray
+	public void userAndPassValidation() {
+		
+	}//end of user and pass validation method
 	
 	public static void main(String[] args) {
 	
 	}//end of main method
+
+
+
+
 
 }//end of class
