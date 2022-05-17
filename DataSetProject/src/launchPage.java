@@ -27,13 +27,12 @@ public class launchPage {
 	
 	//this method is using javax swing to create the gui for the program
 	public void windowValues(){
-		//TESTING
-		userStorage.add("trent");
 		
 		//lets create the basics for the frame that we will be using for the gui using javax swing
 		
 		//instancing objects for the frame of the gui and buttons/text fields
-		JButton button = new JButton(new ImageIcon("C:\\Users\\Trent\\login.png"));
+		JButton login = new JButton("login");
+		JButton signUp = new JButton("Sign Up");
 		//creating the username and password text fields
 		JTextField username = new JTextField();
 		JTextField password = new JTextField();
@@ -46,14 +45,16 @@ public class launchPage {
 	
 		//set the size of the jframe and button and other frame addons
 		window.setSize(400,400);
-		button.setBounds(130,200,150,50);
+		login.setBounds(70,200,100,30);
+		signUp.setBounds(200, 200, 100, 30);
 		username.setBounds(160,100,75,25);
 		password.setBounds(160,140,75,25);
 		user.setBounds(90, 100, 75, 25);
 		pass.setBounds(90, 140, 75, 25);
 		
 		//adding everything to the frame
-		window.add(button);
+		window.add(login);
+		window.add(signUp);
 		window.add(username);
 		window.add(password);
 		window.add(pass);
@@ -62,27 +63,45 @@ public class launchPage {
 		//setting the layout to null for now
 		window.setLayout(null);
 		
+		//TESTING PURPOSES
+		userStorage.add("trent");
+		passStorage.add("boivin");
+		
 		
 		//adding action event listeners to the button to listen for a user click
-		button.addActionListener(new ActionListener() {
+		login.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				//Store the user input on button press
 				String Temp1 = username.getText();
 				String Temp2 = password.getText();
-				//take user input from temp storage over to the arraylist
-				userStorage.add(Temp1);
-				passStorage.add(Temp2);
+				System.out.println(Temp1);
+				System.out.println(Temp2);
 				
-				if(e.getSource()==button) { //ADD A "AND" OPERATOR TO THE IF STATEMENT LATER ON TO ALSO MAYBE USE THIS AS A VALIDATION CHECK FOR THE VALIDITY OF USER AND PASS
-					ToolBox tool = new ToolBox();
-					tool.userNameValidation(Temp1, userStorage);
-					if (tool.userNameValidation(Temp1, userStorage) == 1) {
-						System.out.println("success");
+				//instancing an object from the toolbox class
+				ToolBox tool = new ToolBox();
+				
+				if(e.getSource()==login) { 
+					tool.usernameValidation(Temp1, userStorage);
+					tool.passwordValidation(Temp2, passStorage);
+					//TESTING DEL LATER
+					System.out.println(tool.usernameValidation(Temp1, userStorage));
+					System.out.println(tool.passwordValidation(Temp2, passStorage));
+					System.out.println(tool.userNamePos(Temp1, userStorage));
+					System.out.println(tool.passNamePos(Temp2, passStorage));
+					
+					if(tool.userNamePos(Temp1, userStorage) == tool.passNamePos(Temp2, passStorage)) {
+						window.dispose();
+						userWindow profile = new userWindow();
+						profile.profilePage();
+						profile.openProfilePage();
 					}else {
-						
-					}
-				}
+						//ADD A TRY AGAIN POPUP OR LOGIN UNSUCCESSFULL OR SOMETHING
+					}//end of nested if statement
+				
+				}else {
+					
+				}//end of if statement
 				
 				
 				
