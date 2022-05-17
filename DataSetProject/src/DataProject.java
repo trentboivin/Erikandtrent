@@ -5,16 +5,19 @@
  * 
  * COLLABARATORS: ERIK BARTZ - TRENT BOIVIN
  */
+
+//IMPORTS
+import javax.swing.*;
+
 public class DataProject {
 
 	public static void main(String[] args) {
-		// TODO Create classes for data storage.
-		// TODO figure out data types and variables/finals 
-		// TODO import scanner library and create scanner
-		// TODO create toolbox with random verificating method for the "robot check" when creating an account
-		// TODO Figure out the roadmap for creating this program. 
+		ToolBox obj = new ToolBox();
+		System.out.println(obj.captchaGen());
 		
-		
+		//creating an object from the toolbox class to use javax swing method for GUI
+		ToolBox javx =  new ToolBox();
+		ToolBox.window();
 		
 	}
 

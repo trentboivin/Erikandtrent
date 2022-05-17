@@ -1,6 +1,6 @@
 //IMPORTS
 import java.util.Random;
-
+import javax.swing.*;
 /**
  * Date Created: 5/16/2022
  * Purpose: Toolbox full of our own methods and objects to be used in our main java program
@@ -40,6 +40,42 @@ public class ToolBox {
 		return Generation;
 		
 	}//end of captchaGen method
+	
+	
+	//this method is using javax swing to create the gui for the program
+	public static void window(){
+		//lets create the basics for the frame that we will be using for the gui using javax swing
+		
+		//instancing objects for the frame of the gui and buttons/text fields
+		JFrame window = new JFrame("STORE NAME");
+		JButton button = new JButton(new ImageIcon("C:\\Users\\Trent\\login.png"));
+		//creating the username and password text fields
+		JTextField username = new JTextField("Username");
+		JTextField password = new JTextField("Password");
+	
+		//set the size of the jframe and button and other frame addons
+		window.setSize(400,400);
+		button.setBounds(130,200,150,50);
+		username.setBounds(160,100,75,25);
+		password.setBounds(160,140,75,25);
+		
+		//adding everything to the frame
+		window.add(button);
+		window.add(username);
+		window.add(password);
+		
+		//setting the layout to null for now
+		window.setLayout(null);
+		window.setVisible(true);
+		
+		
+		
+	}//end of window method
+	
+	
+	
+	
+	
 	
 	public static void main(String[] args) {
 	
