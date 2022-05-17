@@ -12,12 +12,12 @@ import javax.swing.*;
 public class DataProject {
 
 	public static void main(String[] args) {
-		ToolBox obj = new ToolBox();
-		System.out.println(obj.captchaGen());
-		
-		//creating an object from the toolbox class to use javax swing method for GUI
-		ToolBox javx =  new ToolBox();
-		ToolBox.window();
+		//instancing all the classes into the main method
+		ToolBox tool = new ToolBox();
+		launchPage launch = new launchPage();
+	
+		launch.windowValues();
+		launch.windowOpen();
 		
 	}
 
