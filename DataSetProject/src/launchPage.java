@@ -19,11 +19,6 @@ public class launchPage {
 	//creating the frame object in the class for all scopes to see
 	JFrame window = new JFrame("STORE NAME");
 	
-	//create the data storage for usernames and passwords using arraylist because normal arrays you cannot append into.
-	ArrayList<String> userStorage = new ArrayList<String>();
-	ArrayList<String> passStorage = new ArrayList<String>();
-	
-	
 	
 	//this method is using javax swing to create the gui for the program
 	public void windowValues(){
@@ -63,20 +58,35 @@ public class launchPage {
 		//setting the layout to null for now
 		window.setLayout(null);
 		
-		//TESTING PURPOSES
-		userStorage.add("trent");
-		passStorage.add("boivin");
+		
+		//ADDING THE LISTENERS FOR THE BUTTONS TO CHECK FOR USER INPUT OR ACTION
+		
+		//adding action event listener for the sign up button to append username and password to
+		signUp.addActionListener(new ActionListener(){
+			
+			public void actionPerformed(ActionEvent e) {
+	
+				//get the text entered into the textfields "user" and "pass" 
+				String temp1 = username.getText();
+				String temp2 = password.getText();
+				//now lets add the new data to the login database
+			
+				
+				
+			}//end of action event code block
+			
+			
+			
+		});//end of action listener
 		
 		
-		//adding action event listeners to the button to listen for a user click
+		//adding action event listeners to the button to listen for a user click to login
 		login.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				//Store the user input on button press
 				String Temp1 = username.getText();
 				String Temp2 = password.getText();
-				System.out.println(Temp1);
-				System.out.println(Temp2);
 				
 				//instancing an object from the toolbox class
 				ToolBox tool = new ToolBox();
@@ -84,20 +94,16 @@ public class launchPage {
 				if(e.getSource()==login) { 
 					tool.usernameValidation(Temp1, userStorage);
 					tool.passwordValidation(Temp2, passStorage);
-					//TESTING DEL LATER
-					System.out.println(tool.usernameValidation(Temp1, userStorage));
-					System.out.println(tool.passwordValidation(Temp2, passStorage));
-					System.out.println(tool.userNamePos(Temp1, userStorage));
-					System.out.println(tool.passNamePos(Temp2, passStorage));
-					
-					if(tool.userNamePos(Temp1, userStorage) == tool.passNamePos(Temp2, passStorage)) {
-						window.dispose();
+					//if the button is pressed run this validation code to check the user input agaisnt database
+					boolean verify = tool.positionValidation(userStorage, passStorage, Temp1, Temp2, window);
+					if(verify == true) {
+						//if the position validation is correct login to the userwindow
 						userWindow profile = new userWindow();
 						profile.profilePage();
 						profile.openProfilePage();
 					}else {
-						//ADD A TRY AGAIN POPUP OR LOGIN UNSUCCESSFULL OR SOMETHING
-					}//end of nested if statement
+						
+					}//end of if statement
 				
 				}else {
 					
