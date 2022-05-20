@@ -1,4 +1,6 @@
 package application;
+
+import dataSetProject.*;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -15,6 +17,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Login Page");
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
@@ -22,7 +25,11 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		launch(args);
+
+		
+		
+		
 	}
 }
