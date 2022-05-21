@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 public class ToolBox {
 	
 
-	//random instance created from javas built in random class for use in the captchagenerator
+	//random erikbartz  hhhinstance created from javas built in random class for use in the captchagenerator
 	static Random r = new Random();
 	
 	
