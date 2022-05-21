@@ -134,7 +134,7 @@ public class sqlConnection {
 	
 	
 	
-	//use this method to gain a connection to the given url you input in the url variable
+	//use this method to gain a connection to the given urll you input in the url variable
 	public static Connection getConnection() throws Exception{
 		try {
 			
