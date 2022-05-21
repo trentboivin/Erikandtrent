@@ -140,8 +140,8 @@ public class sqlConnection {
 			
 			String driver = "com.mysql.jdbc.Driver";
 			String url = "jdbc:mysql://34.130.240.220:3306/ApplicationDB";
-			String username = "TrentBoivin";
-			String password = "$23Nicholson$";
+			String username = "ErikBartz";
+			String password = "baller55";
 			Class.forName(driver);
 			
 			Connection conn = DriverManager.getConnection(url, username, password);
